@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Exploder</string>
+    <string name="search_short_label1">Search</string>
+    <string name="search_long_label1">Search for a map</string>
+    <string name="search_disabled_message1">Searching disabled</string>
+    <string name="action_search">Search</string>
+    <string name="action_basemap">Basemap</string>
+    <string name="action_measure">Measure</string>
+    <string name="action_markup">Markup</string>
+    <string name="action_bookmark">Bookmarks</string>
+    <string name="action_layers">Layers</string>
+    <string name="menuOptionSnackbar">These actions are disabled in Instant Apps. Please downlaod the app.</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white"
+        android:title="@string/action_search"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_bookmark"
+        android:icon="@drawable/ic_bookmark_white"
+        android:title="@string/action_bookmark"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_layers"
+        android:icon="@drawable/ic_layers_white"
+        android:title="@string/action_layers"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/action_basemap"
+        android:title="@string/action_basemap"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_measure"
+        android:title="@string/action_measure"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_markup"
+        android:title="@string/action_markup"
+        app:showAsAction="never"/>
+</menu>
