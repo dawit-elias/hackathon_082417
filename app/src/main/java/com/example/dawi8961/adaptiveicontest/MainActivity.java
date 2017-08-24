@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         String url = "https://play.google.com/store/apps/details?id=com.esri.explorer";
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         downloadApp.setData(Uri.parse(url));
 
         ConstraintLayout mainLayout = findViewById(R.id.mainLayout);
+        CoordinatorLayout snackbarLayout = findViewById(R.id.snackbarLayout);
 
         switch (item.getItemId()) {
             case R.id.action_search:
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_measure:
             case R.id.action_markup:
                 Snackbar menuOptionsSnackbar = Snackbar
-                    .make(mainLayout, R.string.menuOptionSnackbar, Snackbar.LENGTH_LONG)
+                    .make(snackbarLayout, R.string.menuOptionSnackbar, Snackbar.LENGTH_LONG)
                     .setAction("DOWNLOAD", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
