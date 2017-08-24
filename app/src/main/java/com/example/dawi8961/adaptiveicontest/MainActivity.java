@@ -52,6 +52,30 @@ public class MainActivity extends AppCompatActivity {
         ConstraintLayout mainLayout = findViewById(R.id.mainLayout);
         CoordinatorLayout snackbarLayout = findViewById(R.id.snackbarLayout);
 
+        Snackbar menuOptionsSnackbar = Snackbar
+            .make(snackbarLayout, R.string.menuOptionSnackbar, Snackbar.LENGTH_LONG)
+            .setAction("DOWNLOAD", new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(downloadApp);
+                }})
+            .setActionTextColor(getResources().getColor(R.color.colorAccent));
+
+        // any accessibility feature, including things like password managers, disables the snackbar animations.
+        // Snackbar's base class, BaseTransientBottomBar, handles the animation, with package private, final methods
+
+        try {
+            Field mAccessibilityManagerField = BaseTransientBottomBar.class.getDeclaredField("mAccessibilityManager");
+            mAccessibilityManagerField.setAccessible(true);
+            AccessibilityManager accessibilityManager = (AccessibilityManager) mAccessibilityManagerField.get(menuOptionsSnackbar);
+            Field mIsEnabledField = AccessibilityManager.class.getDeclaredField("mIsEnabled");
+            mIsEnabledField.setAccessible(true);
+            mIsEnabledField.setBoolean(accessibilityManager, false);
+            mAccessibilityManagerField.set(menuOptionsSnackbar, accessibilityManager);
+        } catch (Exception e) {
+            Log.d("Snackbar", "Reflection error: " + e.toString());
+        }
+
         switch (item.getItemId()) {
             case R.id.action_search:
             case R.id.action_bookmark:
@@ -59,15 +83,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_basemap:
             case R.id.action_measure:
             case R.id.action_markup:
-                Snackbar menuOptionsSnackbar = Snackbar
-                    .make(snackbarLayout, R.string.menuOptionSnackbar, Snackbar.LENGTH_LONG)
-                    .setAction("DOWNLOAD", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            startActivity(downloadApp);
-                        }
-                    });
-
                 menuOptionsSnackbar.show();
                 return true;
 
