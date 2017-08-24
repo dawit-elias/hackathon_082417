@@ -9,5 +9,5 @@
     <string name="action_markup">Markup</string>
     <string name="action_bookmark">Bookmarks</string>
     <string name="action_layers">Layers</string>
-    <string name="menuOptionSnackbar">These actions are disabled in Instant Apps. Please downlaod the app.</string>
+    <string name="menuOptionSnackbar">Please download the full app for more</string>
 </resources>
